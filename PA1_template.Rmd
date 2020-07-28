@@ -96,14 +96,15 @@ s2 <- summary(total_steps_per_day_new)
 
 # Create a new factor variable in the dataset with two levels – “weekday” and “weekend”
 
-activity2$date <- as.Date(activity2$date)
+activity_Imputed$date <- as.Date(activity_Imputed$date)
 #creating a vector of weekdays
 weekdays1 <- c('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday')
-activity2$wDay <- c('weekend', 'weekday')[(weekdays(activity2$date) %in% weekdays1)+1L]
+activity_Imputed$wDay <- c('weekend', 'weekday')[(weekdays(activity_Imputed$date) %in% weekdays1)+1L]
 
-#Making a panel plot containing a time series plot 
-ggplot(activity2, aes(x =interval , y=steps, color=wDay)) +
+
+ggplot(activity_Imputed, aes(x =interval , y=steps, color=wDay)) +
   geom_line() +
   labs(title = "Average Daily Steps (weekend/weekdays)", x = "Interval", y = "Total Number of Steps") +
   facet_wrap(~ wDay, ncol = 1, nrow=2)
+
 
