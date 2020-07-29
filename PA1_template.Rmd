@@ -106,5 +106,3 @@ ggplot(activity_Imputed, aes(x =interval , y=steps, color=wDay)) +
   geom_line() +
   labs(title = "Average Daily Steps (weekend/weekdays)", x = "Interval", y = "Total Number of Steps") +
   facet_wrap(~ wDay, ncol = 1, nrow=2)
-
-
